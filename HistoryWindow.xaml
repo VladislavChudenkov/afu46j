@@ -1,0 +1,15 @@
+﻿<Window x:Class="AbobaMusic.HistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Playback History" SizeToContent="WidthAndHeight">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="historyListBox" Grid.Row="0" Margin="10" />
+
+        <Button Grid.Row="1" Margin="10" HorizontalAlignment="Center" Click="CloseButton_Click">Close</Button>
+    </Grid>
+</Window>

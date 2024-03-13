@@ -1,0 +1,49 @@
+﻿<Window x:Class="AbobaMusic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Audio Player" Height="450" Width="600">
+    <Grid>
+        <!-- определение строк -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- определение столбцов -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Browse Button -->
+        <Button Grid.Row="0" Grid.Column="0" Click="BrowseButton_Click" Content="Browse"/>
+
+        <!-- Control Buttons -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Button Click="PreviousTrackButton_Click" Content="Previous"/>
+            <Button Click="PlayPauseButton_Click" Content="Play/Pause"/>
+            <Button Click="NextTrackButton_Click" Content="Next"/>
+            <Button Click="RepeatButton_Click" Content="Repeat"/>
+            <Button Click="ShuffleButton_Click" Content="Shuffle"/>
+        </StackPanel>
+
+        <!-- Sliders -->
+        <Slider Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Minimum="0" ValueChanged="PositionSlider_ValueChanged" x:Name="positionSlider"/>
+        <Slider Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Minimum="0" Maximum="1" ValueChanged="VolumeSlider_ValueChanged" x:Name="volumeSlider"/>
+
+        <!-- Labels -->
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Current Position:" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" x:Name="currentPositionLabel" VerticalAlignment="Center"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Remaining Time:" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" x:Name="remainingTimeLabel" VerticalAlignment="Center"/>
+
+        <!-- Media Player -->
+        <MediaElement Grid.Row="0" Grid.RowSpan="6" Grid.Column="1" x:Name="mediaPlayer" MediaOpened="mediaPlayer_MediaOpened" MediaEnded="mediaPlayer_MediaEnded" LoadedBehavior="Manual" UnloadedBehavior="Manual"/>
+
+    </Grid>
+</Window>
